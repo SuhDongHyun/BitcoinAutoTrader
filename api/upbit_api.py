@@ -28,3 +28,9 @@ class UpbitApi:
 
     def get_balances(self):
         return self.upbit.get_balances()
+
+    def buy(self, ticker="KRW-BTC", price=1000):
+        return self.upbit.buy_market_order(ticker, price)
+
+    def sell(self, ticker="KRW-BTC", volume=0.001):
+        return self.upbit.sell_market_order(ticker, volume)
