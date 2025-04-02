@@ -25,4 +25,6 @@ class UpbitApi:
     # noinspection PyMethodMayBeStatic
     def get_price_trend(self, ticker="KRW-BTC", interval="day", count=200, to=None):
         return pyupbit.get_ohlcv(ticker, interval, count, to)
-    
+
+    def get_balances(self):
+        return self.upbit.get_balances()
