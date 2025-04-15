@@ -67,3 +67,14 @@ class LSTM(nn.Module):
                 val_loss = self.criterion(val_output, y_val_torch)
 
             print(f"[Epoch {epoch+1}] Train Loss: {loss.item():.6f} | Val Loss: {val_loss.item():.6f}")
+
+    def predict_price(self):
+        dataset = self.load_data()
+        x_input = torch.tensor(dataset.values[-self.window:], dtype=torch.float32).unsqueeze(0)
+
+        self.lstm.eval()
+        with torch.no_grad():
+            predicted_scaled = self.forward(x_input).numpy()
+            predicted = self.scaler.inverse_transform(predicted_scaled)
+
+        return predicted.flatten()
