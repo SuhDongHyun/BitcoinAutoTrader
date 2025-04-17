@@ -5,8 +5,8 @@ import pyupbit
 @singleton
 class UpbitApi:
     def __init__(self):
-        self.access_key = "zry4vxghMixsVamXLyibZxJnR3IhKQ4C0GzUCwT8"
-        self.secret_key = "tZsYxNv98LIdCxqPTLBRypcEvGDV3jjkBtFM0Ifh"
+        self.access_key = "IhgxIbMM4G1lRCKxHoFcluNgxURuxvcdPuiDd6K5"
+        self.secret_key = "zJmJII3vAkQZlw8SxxGmGVnm2gfEU19IncFOUtSx"
         self.upbit = pyupbit.Upbit(self.access_key, self.secret_key)
 
     # noinspection PyMethodMayBeStatic
