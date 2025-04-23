@@ -13,6 +13,9 @@ class NewsSentiment:
         news_items = [entry['title'] for entry in feed['entries'][:max_items]]
         return news_items
 
+    def get_scores(self):
+        return [TextBlob(news).sentiment.polarity for news in self.get_news()]
+
     def analyze_sentiment(self):
         scores = [TextBlob(news).sentiment.polarity for news in self.get_news()]
         return sum(scores) / len(scores)
